@@ -1,8 +1,11 @@
 package com.n0hands.todoapp.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.orm.SugarRecord;
 
-public class TodoItem extends SugarRecord {
+public class TodoItem extends SugarRecord implements Parcelable {
     private String title;
     private String subTitle;
     private String description;
@@ -49,4 +52,37 @@ public class TodoItem extends SugarRecord {
     public void setCategory(Category category) {
         this.category = category;
     }
+
+    protected TodoItem(Parcel in) {
+        title = in.readString();
+        subTitle = in.readString();
+        description = in.readString();
+        category = (Category) in.readValue(Category.class.getClassLoader());
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(title);
+        dest.writeString(subTitle);
+        dest.writeString(description);
+        dest.writeValue(category);
+    }
+
+    @SuppressWarnings("unused")
+    public static final Parcelable.Creator<TodoItem> CREATOR = new Parcelable.Creator<TodoItem>() {
+        @Override
+        public TodoItem createFromParcel(Parcel in) {
+            return new TodoItem(in);
+        }
+
+        @Override
+        public TodoItem[] newArray(int size) {
+            return new TodoItem[size];
+        }
+    };
 }
