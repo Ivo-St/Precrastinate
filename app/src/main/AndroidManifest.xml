@@ -16,10 +16,10 @@
         android:theme="@style/AppTheme">
         <meta-data
             android:name="DATABASE"
-            android:value="precrastinate_database.db" />
+            android:value="precrastinator_database.db" />
         <meta-data
             android:name="VERSION"
-            android:value="2" />
+            android:value="4" />
         <meta-data
             android:name="QUERY_LOG"
             android:value="true" />
@@ -38,7 +38,8 @@
             android:name=".LoginActivity"
             android:label="@string/title_activity_login"></activity>
         <activity android:name=".Test" />
-        <activity android:name=".TodoItemsList"></activity>
+        <activity android:name=".TodoItemsListActivity"></activity>
+        <activity android:name=".CategoriesListActivity"></activity>
     </application>
 
 </manifest>

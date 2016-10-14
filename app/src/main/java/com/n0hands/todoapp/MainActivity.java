@@ -3,7 +3,6 @@ package com.n0hands.todoapp;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -18,7 +17,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         testView = (TextView) findViewById(R.id.textView);
-        Log.d("aa","aa");
     }
 
     @Override
@@ -31,18 +29,13 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.save_game:
-                String currentText = (String) testView.getText();
-                if (currentText.isEmpty()) {
-                    testView.setText("Not empty");
-                } else {
-                    testView.setText("");
-                }
-
                 Toast.makeText(this, "Save Game", Toast.LENGTH_SHORT).show();
+                Intent intentCategory = new Intent(this, CategoriesListActivity.class);
+                startActivity(intentCategory);
                 break;
             case R.id.load_game:
                 Toast.makeText(this, "Load Game", Toast.LENGTH_SHORT).show();
-                Intent intentLogin = new Intent(this, TodoItemsList.class);
+                Intent intentLogin = new Intent(this, TodoItemsListActivity.class);
                 startActivity(intentLogin);
                 break;
             case R.id.test_game:

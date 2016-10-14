@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Precrastinate Me</string>
+    <string name="app_name">Precrastinator</string>
     <string name="title_activity_login">Sign in</string>
 
     <!-- Strings related to login -->
@@ -15,4 +15,7 @@
         completions."
     </string>
     <string name="title_activity_test_list_view">TestListView</string>
+
+    <!--Todo Items List View-->
+    <string name="default_title">Todo Items</string>
 </resources>

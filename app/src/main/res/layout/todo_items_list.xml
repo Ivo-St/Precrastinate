@@ -4,7 +4,7 @@
     android:id="@+id/todo_items_list_wrapper"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context="com.n0hands.todoapp.Test">
+    tools:context="com.n0hands.todoapp.TodoItemsListActivity">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/todo_items_list"

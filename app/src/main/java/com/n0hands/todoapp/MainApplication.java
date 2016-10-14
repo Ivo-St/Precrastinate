@@ -16,8 +16,6 @@ public class MainApplication extends Application {
         super.onCreate();
 
         this.createDatabase();
-        this.dummyFillDatabase();
-        Log.d("Test-",TodoItem.findById(TodoItem.class,1).getTitle());
     }
 
     @Override
@@ -27,24 +25,29 @@ public class MainApplication extends Application {
 
     private void createDatabase() {
         SugarContext.init(this.getApplicationContext());
-        if (!this.doesDatabaseExist(this, "precrastinate_database.db")) {
-            Log.d("test","test");
+        if (!this.doesDatabaseExist(this, "precrastinator_database.db")) {
             Category.findById(Category.class, 1);
             TodoItem.findById(TodoItem.class, 1);
+            this.dummyFillDatabase();
         }
     }
 
     private boolean doesDatabaseExist(Context context, String dbLocation) {
-        File dbFile = new File(dbLocation);
-
+        File dbFile = context.getDatabasePath(dbLocation);
         return dbFile.exists();
     }
 
-    private void dummyFillDatabase(){
-        Category todo = new Category("ToDo","Things todo");
-        todo.save();
+    private void dummyFillDatabase() {
+        Category todo = new Category("ToDo", "Things todo");
+        Category todo2 = new Category("ToDo2", "Things todo2");
 
-        TodoItem todoItem = new TodoItem("Test","Test item","This is test todo item",todo);
+        todo.save();
+        todo2.save();
+
+        TodoItem todoItem = new TodoItem("Test", "Test item", "This is test todo item", todo);
+        TodoItem todoItem2 = new TodoItem("Test2", "Test item2", "This is test todo item2", todo2);
+
         todoItem.save();
+        todoItem2.save();
     }
 }

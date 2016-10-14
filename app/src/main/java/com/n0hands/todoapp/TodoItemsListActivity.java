@@ -13,7 +13,7 @@ import com.n0hands.todoapp.model.TodoItem;
 
 import java.util.List;
 
-public class TodoItemsList extends AppCompatActivity {
+public class TodoItemsListActivity extends AppCompatActivity {
     private RecyclerView todoList;
     private TodoItemsAdapter todoItemsAdapter;
 
@@ -21,14 +21,17 @@ public class TodoItemsList extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.todo_items_list);
+        setTitle(R.string.default_title);
+
+        List<TodoItem> todoItems = TodoItem.listAll(TodoItem.class);
 
         this.todoList = (RecyclerView) this.findViewById(R.id.todo_items_list);
 
-        List<TodoItem> todoItems = TodoItem.listAll(TodoItem.class);
         todoItemsAdapter = new TodoItemsAdapter(todoItems);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         todoList.setLayoutManager(mLayoutManager);
         todoList.setItemAnimator(new DefaultItemAnimator());
+        todoList.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
         todoList.setAdapter(todoItemsAdapter);
     }
 
