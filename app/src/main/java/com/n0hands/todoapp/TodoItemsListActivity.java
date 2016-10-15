@@ -55,6 +55,10 @@ public class TodoItemsListActivity extends AppCompatActivity {
             public void onClick(View view, int position) {
                 TodoItem todo = todoItems.get(position);
 
+                Intent intent = new Intent(getApplicationContext(), ViewTodoItemActivity.class);
+                intent.putExtra("CATEGORY", category);
+                intent.putExtra("TODO_ITEM", todo);
+                startActivity(intent);
             }
 
             @Override

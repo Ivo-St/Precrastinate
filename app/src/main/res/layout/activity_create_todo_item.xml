@@ -73,26 +73,28 @@
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/todo_item_create_deny"
-        app:fabSize="mini"
+        app:fabSize="normal"
         app:srcCompat="@android:drawable/ic_delete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+        android:layout_marginBottom="10dp"
         android:clickable="true"
         android:tint="@color/colorWhite" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/todo_item_create_accept"
         app:backgroundTint="@android:color/holo_green_light"
-        app:fabSize="mini"
+        app:fabSize="normal"
         app:srcCompat="@android:drawable/ic_menu_send"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
+        android:layout_marginBottom="10dp"
         android:clickable="true"
         android:tint="@color/colorWhite" />
 

@@ -38,10 +38,6 @@ public class MainActivity extends AppCompatActivity {
                 Intent intentLogin = new Intent(this, TodoItemsListActivity.class);
                 startActivity(intentLogin);
                 break;
-            case R.id.test_game:
-                Intent intentTest = new Intent(this, Test.class);
-                startActivity(intentTest);
-                break;
             default:
                 Toast.makeText(this, "Unsupported operation", Toast.LENGTH_SHORT).show();
         }

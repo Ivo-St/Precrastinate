@@ -4,29 +4,32 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/todo_items_list_wrapper"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     tools:context="com.n0hands.todoapp.TodoItemsListActivity">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/todo_items_list"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:scrollbars="horizontal|vertical"
         tools:listitem="@layout/todo_item_row"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true" >
+
+    </android.support.v7.widget.RecyclerView>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/todo_item_create"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="10dp"
         android:clickable="true"
-        app:fabSize="mini"
+        app:fabSize="normal"
         app:srcCompat="@android:drawable/ic_input_add"
         app:backgroundTint="@color/colorPrimaryDark"
+        android:layout_marginBottom="10dp"
         android:tint="@color/colorWhite"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
         android:baselineAlignBottom="true" />
+
 </RelativeLayout>

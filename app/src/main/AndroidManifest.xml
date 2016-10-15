@@ -47,7 +47,9 @@
         <activity
             android:name=".EditTodoItemActivity"
             android:noHistory="true" />
-        <activity android:name=".ViewTodoItemActivity"></activity>
+        <activity
+            android:name=".ViewTodoItemActivity"
+            android:noHistory="true"></activity>
     </application>
 
 </manifest>
