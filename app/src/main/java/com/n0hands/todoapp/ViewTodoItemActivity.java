@@ -21,6 +21,8 @@ public class ViewTodoItemActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_todo_item);
 
+        this.setTitle("Todo Item Preview");
+
         this.titleView = (TextView) this.findViewById(R.id.todo_item_view_title);
         this.subtitleView = (TextView) this.findViewById(R.id.todo_item_view_subtitle);
         this.descriptionView = (TextView) this.findViewById(R.id.todo_item_view_description);

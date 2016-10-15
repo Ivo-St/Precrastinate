@@ -14,7 +14,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:weightSum="1">
 
         <TextView
             android:id="@+id/todo_item_create_title_label"
@@ -31,6 +32,7 @@
             android:ems="10"
             android:inputType="textPersonName"
             android:text=""
+            android:textColorHint="#80000000"
             android:textColorLink="@color/colorPrimary" />
 
         <TextView
@@ -49,6 +51,7 @@
             android:ems="10"
             android:inputType="text"
             android:text=""
+            android:textColorHint="#80000000"
             android:textColorLink="@color/cardview_shadow_start_color" />
 
         <TextView
@@ -67,7 +70,9 @@
             android:ems="10"
             android:inputType="textMultiLine"
             android:text=""
-            android:textColorLink="@color/cardview_shadow_start_color" />
+            android:textColorLink="@color/cardview_shadow_start_color"
+            android:layout_weight="0.50"
+            android:textColorHint="#80000000" />
 
     </LinearLayout>
 
