@@ -99,10 +99,4 @@ public class TodoItemsListActivity extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(), CategoriesListActivity.class);
         startActivity(intent);
     }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
 }
