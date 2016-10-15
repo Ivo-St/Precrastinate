@@ -7,11 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.view.Menu;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.n0hands.todoapp.model.Category;
 
@@ -40,7 +36,7 @@ public class CategoriesListActivity extends AppCompatActivity {
         categoryList.setItemAnimator(new DefaultItemAnimator());
         categoryList.setAdapter(categoriesAdapter);
 
-        categoryList.addOnItemTouchListener(new RecyclerTouchListener(getApplicationContext(), categoryList, new ClickListener() {
+        categoryList.addOnItemTouchListener(new RecyclerTouchListener(getApplicationContext(), categoryList, new IClickListener() {
             @Override
             public void onClick(View view, int position) {
                 Category category = categories.get(position);
@@ -54,7 +50,7 @@ public class CategoriesListActivity extends AppCompatActivity {
             public void onLongClick(View view, int position) {
                 Category category = categories.get(position);
 
-                Intent intent = new Intent(getApplicationContext(), EditCategory.class);
+                Intent intent = new Intent(getApplicationContext(), EditCategoryActivity.class);
                 intent.putExtra("CATEGORY", category);
                 startActivity(intent);
             }
@@ -75,7 +71,7 @@ public class CategoriesListActivity extends AppCompatActivity {
 
         this.createCategoryButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), CreateCategory.class);
+                Intent intent = new Intent(getApplicationContext(), CreateCategoryActivity.class);
                 startActivity(intent);
             }
         });

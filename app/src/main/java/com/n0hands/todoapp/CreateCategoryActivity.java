@@ -9,7 +9,7 @@ import android.widget.EditText;
 
 import com.n0hands.todoapp.model.Category;
 
-public class CreateCategory extends AppCompatActivity {
+public class CreateCategoryActivity extends AppCompatActivity {
     private EditText setNameView,
             setDescriptionView;
     private FloatingActionButton denyButton,

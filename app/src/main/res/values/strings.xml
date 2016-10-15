@@ -8,4 +8,11 @@
 
     <!-- Strings related to Todo Items list view-->
     <string name="default_title">Todo Items</string>
+    <string name="category_description_label">Category Description</string>
+    <string name="category_name_label">Category Name</string>
+    <string name="todo_item_name_label">Todo Item Name</string>
+    <string name="todo_item_subtitle_label">Todo Item Subtitle</string>
+    <string name="todo_item_description_label">Todo Item Description</string>
+    <string name="todo_item_menu_edit">Edit</string>
+    <string name="todo_item_menu_delete">Delete</string>
 </resources>

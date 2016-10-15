@@ -36,10 +36,10 @@
         </activity>
         <activity android:name=".TodoItemsListActivity" />
         <activity
-            android:name=".CreateCategory"
+            android:name=".CreateCategoryActivity"
             android:noHistory="true" />
         <activity
-            android:name=".EditCategory"
+            android:name=".EditCategoryActivity"
             android:noHistory="true" />
         <activity
             android:name=".CreateTodoItemActivity"

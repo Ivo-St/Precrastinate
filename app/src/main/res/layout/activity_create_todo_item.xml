@@ -22,7 +22,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Todo Item Name"
+            android:text="@string/todo_item_name_label"
             android:textSize="25sp" />
 
         <EditText
@@ -40,7 +40,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
-            android:text="Todo Item Subtitle"
+            android:text="@string/todo_item_subtitle_label"
             android:textColorLink="@color/cardview_shadow_start_color"
             android:textSize="20sp" />
 
@@ -59,7 +59,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
-            android:text="Todo Item Description"
+            android:text="@string/todo_item_description_label"
             android:textColorLink="@color/cardview_shadow_start_color"
             android:textSize="20sp" />
 

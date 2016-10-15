@@ -7,10 +7,7 @@ import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.view.Menu;
 import android.view.View;
-import android.widget.RelativeLayout;
 
 import com.n0hands.todoapp.model.Category;
 import com.n0hands.todoapp.model.TodoItem;
@@ -50,7 +47,7 @@ public class TodoItemsListActivity extends AppCompatActivity {
         todoList.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
         todoList.setAdapter(todoItemsAdapter);
 
-        todoList.addOnItemTouchListener(new RecyclerTouchListener(getApplicationContext(), todoList, new ClickListener() {
+        todoList.addOnItemTouchListener(new RecyclerTouchListener(getApplicationContext(), todoList, new IClickListener() {
             @Override
             public void onClick(View view, int position) {
                 TodoItem todo = todoItems.get(position);
