@@ -36,8 +36,19 @@
         </activity>
         <activity android:name=".Test" />
         <activity android:name=".TodoItemsListActivity" />
-        <activity android:name=".CreateCategory"></activity>
-        <activity android:name=".EditCategory"></activity>
+        <activity
+            android:name=".CreateCategory"
+            android:noHistory="true" />
+        <activity
+            android:name=".EditCategory"
+            android:noHistory="true" />
+        <activity
+            android:name=".CreateTodoItemActivity"
+            android:noHistory="true" />
+        <activity
+            android:name=".EditTodoItemActivity"
+            android:noHistory="true" />
+        <activity android:name=".ViewTodoItemActivity"></activity>
     </application>
 
 </manifest>

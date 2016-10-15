@@ -33,9 +33,9 @@ public class TodoItemsListActivity extends AppCompatActivity {
         this.createTodoItemButton = (FloatingActionButton) this.findViewById(R.id.todo_item_create);
 
         Intent intent = getIntent();
-        Category category = intent.getParcelableExtra("CATEGORY");
+        final Category category = intent.getParcelableExtra("CATEGORY");
 
-        List<TodoItem> todoItems;
+        final List<TodoItem> todoItems;
         if (category == null) {
             todoItems = TodoItem.listAll(TodoItem.class);
         } else {
@@ -50,12 +50,50 @@ public class TodoItemsListActivity extends AppCompatActivity {
         todoList.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
         todoList.setAdapter(todoItemsAdapter);
 
+        todoList.addOnItemTouchListener(new RecyclerTouchListener(getApplicationContext(), todoList, new ClickListener() {
+            @Override
+            public void onClick(View view, int position) {
+                TodoItem todo = todoItems.get(position);
+
+            }
+
+            @Override
+            public void onLongClick(View view, int position) {
+                TodoItem todo = todoItems.get(position);
+
+                Intent intent = new Intent(getApplicationContext(), EditTodoItemActivity.class);
+                intent.putExtra("CATEGORY", category);
+                intent.putExtra("TODO_ITEM", todo);
+                startActivity(intent);
+            }
+
+            @Override
+            public void onFling(View view, int position) {
+                TodoItem todo = todoItems.get(position);
+
+                view.clearAnimation();
+
+                todo.delete();
+
+                todoItems.remove(position);
+                todoList.getAdapter().notifyItemRemoved(position);
+                todoList.getAdapter().notifyItemRangeChanged(position, todoList.getAdapter().getItemCount());
+            }
+        }));
+
         this.createTodoItemButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), CreateCategory.class);
+                Intent intent = new Intent(getApplicationContext(), CreateTodoItemActivity.class);
+                intent.putExtra("CATEGORY", category);
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(getApplicationContext(), CategoriesListActivity.class);
+        startActivity(intent);
     }
 
     @Override

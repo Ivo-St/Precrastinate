@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.n0hands.todoapp.model.Category;
@@ -57,6 +58,19 @@ public class CategoriesListActivity extends AppCompatActivity {
                 intent.putExtra("CATEGORY", category);
                 startActivity(intent);
             }
+
+            @Override
+            public void onFling(View view, int position) {
+                Category category = categories.get(position);
+
+                view.clearAnimation();
+
+                category.delete();
+
+                categories.remove(position);
+                categoryList.getAdapter().notifyItemRemoved(position);
+                categoryList.getAdapter().notifyItemRangeChanged(position,categoryList.getAdapter().getItemCount());
+            }
         }));
 
         this.createCategoryButton.setOnClickListener(new View.OnClickListener() {
@@ -65,6 +79,11 @@ public class CategoriesListActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        this.finish();
     }
 
     @Override

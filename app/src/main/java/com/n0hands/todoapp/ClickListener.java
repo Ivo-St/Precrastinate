@@ -6,4 +6,6 @@ public interface ClickListener {
     void onClick(View view, int position);
 
     void onLongClick(View view, int position);
+
+    void onFling(View view, int position);
 }

@@ -1,6 +1,8 @@
 package com.n0hands.todoapp;
 
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.view.DragEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -52,5 +54,12 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.My
     @Override
     public int getItemCount() {
         return categories.size();
+    }
+
+
+    public void removeAt(int position) {
+        categories.remove(position);
+        notifyItemRemoved(position);
+        notifyItemRangeChanged(position, categories.size());
     }
 }

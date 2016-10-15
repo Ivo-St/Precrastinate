@@ -2,6 +2,7 @@ package com.n0hands.todoapp;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
@@ -10,6 +11,9 @@ public class RecyclerTouchListener implements RecyclerView.OnItemTouchListener {
 
     private GestureDetector gestureDetector;
     private ClickListener clickListener;
+    private static final int SWIPE_MIN_DISTANCE = 120;
+    private static final int SWIPE_MAX_OFF_PATH = 50;
+    private static final int SWIPE_THRESHOLD_VELOCITY = 200;
 
     public RecyclerTouchListener(Context context, final RecyclerView recyclerView, final ClickListener clickListener) {
         this.clickListener = clickListener;
@@ -27,7 +31,23 @@ public class RecyclerTouchListener implements RecyclerView.OnItemTouchListener {
                 }
             }
 
+            @Override
+            public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+                View child = recyclerView.findChildViewUnder(e1.getX(), e1.getY());
 
+                try {
+                    if (Math.abs(e1.getY() - e2.getY()) > SWIPE_MAX_OFF_PATH){
+                        return false;
+                    }
+
+                    if (child != null && clickListener != null) {
+                        clickListener.onFling(child, recyclerView.getChildPosition(child));
+                    }
+                } catch (Exception e) {
+
+                }
+                return false;
+            }
         });
     }
 
