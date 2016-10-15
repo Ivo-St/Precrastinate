@@ -48,7 +48,7 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.My
         Category category = categories.get(position);
         holder.title.setText(category.getName());
         holder.description.setText(category.getDescription());
-        holder.image.setImageResource(R.mipmap.ic_launcher); // FIXME: fix this
+        holder.image.setImageResource(R.mipmap.category); // FIXME: fix this
     }
 
     @Override
