@@ -2,6 +2,7 @@ package com.n0hands.todoapp.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.util.Log;
 
 import com.orm.SugarRecord;
 
@@ -36,10 +37,11 @@ public class Category extends SugarRecord implements Parcelable {
     }
 
     public List<TodoItem> getTodoItems() {
-        return TodoItem.find(TodoItem.class, "category = ?", String.valueOf(this.getId()));
+        return TodoItem.find(TodoItem.class, "category = ?", String.valueOf(getId()));
     }
 
     protected Category(Parcel in) {
+        setId(in.readLong());
         name = in.readString();
         description = in.readString();
     }
@@ -51,6 +53,7 @@ public class Category extends SugarRecord implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
+        dest.writeLong(getId());
         dest.writeString(name);
         dest.writeString(description);
     }

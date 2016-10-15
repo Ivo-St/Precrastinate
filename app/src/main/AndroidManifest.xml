@@ -27,19 +27,17 @@
             android:name="DOMAIN_PACKAGE_NAME"
             android:value="com.n0hands.todoapp" />
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".CategoriesListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".LoginActivity"
-            android:label="@string/title_activity_login"></activity>
         <activity android:name=".Test" />
-        <activity android:name=".TodoItemsListActivity"></activity>
-        <activity android:name=".CategoriesListActivity"></activity>
+        <activity android:name=".TodoItemsListActivity" />
+        <activity android:name=".CreateCategory"></activity>
+        <activity android:name=".EditCategory"></activity>
     </application>
 
 </manifest>

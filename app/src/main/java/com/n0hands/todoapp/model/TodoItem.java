@@ -54,6 +54,7 @@ public class TodoItem extends SugarRecord implements Parcelable {
     }
 
     protected TodoItem(Parcel in) {
+        setId(in.readLong());
         title = in.readString();
         subTitle = in.readString();
         description = in.readString();
@@ -67,6 +68,7 @@ public class TodoItem extends SugarRecord implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
+        dest.writeLong(this.getId());
         dest.writeString(title);
         dest.writeString(subTitle);
         dest.writeString(description);
